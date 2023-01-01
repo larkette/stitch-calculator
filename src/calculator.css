@@ -1,0 +1,39 @@
+main {
+    background-color: #657da3;
+    min-height: 95vh;
+    padding: 10px;
+}
+
+form {
+    background-color: #7199d9;
+    padding: 10px;
+}
+
+.result {
+    padding: 10px;
+}
+.hide {
+    display: none;
+}
+
+.calculator {
+    border-color: black;
+    border-style: solid;
+    width: 85vw;
+    margin: auto;
+    padding: 10px;
+}
+
+.repeat {
+    display: block;
+    padding: 10px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.result {
+    font-size:18px;
+    font-weight: bold;
+}

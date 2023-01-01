@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Stitch Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Web app built with HTML, CSS, JS and React
 
-## Available Scripts
+## Video Intro Link: https://youtu.be/vXsXxxX0NPM
 
-In the project directory, you can run:
+## About
 
-### `npm start`
+The stitch calculator was created to assist knitters and crocheter's with up or down sizing patterns to better suit their needs. Most knit and crochet patterns come with a total number of stitches for a row or round. If the user wants to change the total number of stitches (to size up or down clothing, for example), a calculation needs to be performed to ensure that the new total will work with any repeats in the pattern.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+For example, if one section of the pattern repeats every 4 stitches, another every 10, and another every 5; the total must be a multiple of 20 stitches to not cutoff any repeat.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Code explanation
 
-### `npm test`
+### Choices
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I wanted the app to intially only show the user a question on how many repeats are in the pattern they are working on and load that number of input fields after a submit button is clicked. React componenents seemed like the best way to accomplish this.
 
-### `npm run build`
+### Javascript files
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+App.js and index.js were created using create-react-app. These files were modified to remove the placeholders that were there after initial setup and create a main to insert the calculator component into. I created calculator.js to hold the Calculator and Quantity classes. The Quantity class renders the intial form that is shown and asks the user how many repeats are in their pattern (called quantity). When the input field is changed, a function runs to update a variable with that response. On submitting the form, the updated variable is passed up to the Calculator class.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The Calculator class receives the quantity and loops that many times to create an array of numbers. The array is then mapped to create an input element with a key of the number. When the input elements are changed, a function runs to update an new array with the responses (called repeats). On clicking the submit button, a function runs to perform the calculation. The values of the repeat array are multiplied to get the max. The max is dividing by each item in the repeat array to start its loop, and is sent as the conditional for the loop. Each value in the 1st array is compared against the next array, looking for a match. After the matches are found, and stored in a match array. The match array is compared against the next array. Any previous matches that are not in the next Array are removed from the match array. Once all of the repeats are looped over, the first item in the match array is rendered as the result.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### CSS Files
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Bootstrap was used to style the buttons on the page. The index.css and app.css files were generated by create-react-app. Minimal changes were made to reduce the size of the header, so there would be space for the main element that i created without scrolling. Calculator.css was created and used to change background colors, provide a class to hide the second form and submit button, provide padding and margin, reduce the overall width.
